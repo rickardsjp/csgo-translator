@@ -1,9 +1,8 @@
-from PIL import Image
-from PIL import ImageOps
-import pyscreenshot as ImageGrab #screengrab on Win/*nix, pillow won't do Linux
+from PIL import Image, ImageOps
 import pytesseract
 import numpy as np
 import os
+import cv2
 
 #take screenshot and convert to grayscale
 #im = ImageGrab.grab(170, 670, 614, 960)
@@ -15,6 +14,8 @@ import os
 im = Image.open("./img/csgo-1.png").crop((170, 670, 614, 960))
 data = np.array(im)
 red, green, blue, alpha = data.T
+
+im.show()
 
 #take brighter px of image and convert dark pixels to black for better contrast
 dark_areas = (red <= 155) & (blue <= 155) & (green <= 155)
