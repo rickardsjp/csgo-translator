@@ -9,6 +9,9 @@ import os
 #im = ImageGrab.grab(170, 670, 614, 960)
 
 #using screenshot for now, easier to test
+#crop values are the area of the screenshot where the text is (for now)
+#will have to be dynamic at some point due to different resolutions, 16x9, 4x3
+
 im = Image.open("./img/csgo-1.png").crop((170, 670, 614, 960))
 data = np.array(im)
 red, green, blue, alpha = data.T
